@@ -2,12 +2,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteApiContact } from 'redux/contacts/thanks';
 import styled from 'styled-components';
 
+import { Button, ListItem, Stack } from '@mui/material';
+import { Delete } from '@mui/icons-material';
+
 export const ContactList = () => {
   const dispatch = useDispatch();
 
   const { contacts, filter } = useSelector(state => state.contactsStore);
 
-  console.log(contacts.items);
   const data = contacts.items.filter(contact =>
     contact.name.toLowerCase().includes(filter)
   );
@@ -22,9 +24,15 @@ export const ContactList = () => {
           return (
             <ContactItem key={id}>
               {name} : {number}
-              <DeleteBtn id={id} type="button" onClick={onDeleteBtn}>
-                delete
-              </DeleteBtn>
+              <Button
+                id={id}
+                type="button"
+                onClick={onDeleteBtn}
+                variant="contained"
+                startIcon={<Delete />}
+              >
+                Delete
+              </Button>
             </ContactItem>
           );
         })}
@@ -35,11 +43,6 @@ export const ContactList = () => {
 
 const ContactItem = styled.li`
   margin-bottom: 20px;
-`;
-const DeleteBtn = styled.button`
-  margin-left: 20px;
-  border-radius: 20px;
-  border: transparent;
-  padding: 10px 25px;
-  background-color: burlywood;
+  display: flex;
+  justify-content: space-between;
 `;

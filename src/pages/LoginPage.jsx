@@ -6,7 +6,6 @@ export const LoginPage = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = form => {
-    console.log(form);
     dispatch(loginUser(form));
   };
   return (

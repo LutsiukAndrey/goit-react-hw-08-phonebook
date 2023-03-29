@@ -1,7 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterContact } from 'redux/contacts/contactSlice';
+import { TextField } from '@mui/material';
 
 const Filter = () => {
   const dispatch = useDispatch();
@@ -14,16 +14,17 @@ const Filter = () => {
 
   return (
     <form action="input">
-      <FilterInput type="text" value={filter} onChange={toFilteInput} />
+      <TextField
+        label="filter"
+        variant="outlined"
+        type="text"
+        name="name"
+        value={filter}
+        onChange={toFilteInput}
+        fullWidth
+        sx={{ m: 2 }}
+      />
     </form>
   );
 };
 export default Filter;
-
-const FilterInput = styled.input`
-  width: 300px;
-  padding: 10px 40px;
-  border-radius: 20px;
-  border: transparent;
-  margin-bottom: 30px;
-`;

@@ -1,3 +1,5 @@
+import { Button, Grid, TextField } from '@mui/material';
+import { Delete } from '@mui/icons-material';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -22,50 +24,47 @@ export const AuthForm = ({ cbOnSubmit, btnTitle, linkTitle, pathName }) => {
       return;
     } else cbOnSubmit(formLogin);
   };
+  console.log();
   return (
     <FormContainer>
       <form onSubmit={handleSubmit}>
         {btnTitle === 'Registrate' ? (
-          <label htmlFor="">
-            Name
-            <input
-              type="text"
-              name="name"
-              value={formRegister.name}
-              required
-              onChange={handleChange}
-              placeholder="enter your name"
-            />
-          </label>
+          <TextField
+            label="enter your name"
+            variant="outlined"
+            type="text"
+            name="name"
+            value={formRegister.name}
+            required
+            onChange={handleChange}
+          />
         ) : (
           ''
         )}
 
-        <label htmlFor="">
-          email
-          <input
-            type="text"
-            name="email"
-            value={formRegister.email}
-            required
-            onChange={handleChange}
-            placeholder="enter your email"
-          />
-        </label>
-        <label htmlFor="">
-          Password
-          <input
-            type="text"
-            name="password"
-            value={formRegister.password}
-            required
-            onChange={handleChange}
-            placeholder="enter your password"
-          />
-        </label>
+        <TextField
+          label="enter your email"
+          variant="outlined"
+          type="text"
+          name="email"
+          value={formRegister.email}
+          required
+          onChange={handleChange}
+        />
+        <TextField
+          label="enter your password"
+          variant="outlined"
+          type="password"
+          name="password"
+          value={formRegister.password}
+          required
+          onChange={handleChange}
+        />
 
         <div>
-          <FormBtn type="submit">{btnTitle}</FormBtn>
+          <Button variant="contained" type="submit">
+            {btnTitle}
+          </Button>
         </div>
       </form>
       <Link to={pathName}>{linkTitle}</Link>

@@ -8,7 +8,6 @@ export const RegisterPage = () => {
 
   const handleSubmit = form => {
     dispatch(registerUser(form));
-    console.log(form);
   };
   return (
     <div>

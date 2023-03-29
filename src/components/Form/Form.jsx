@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { Button, TextField } from '@mui/material';
 
 export const Form = ({ onSubmit }) => {
   const [name, setName] = useState('');
@@ -34,28 +35,37 @@ export const Form = ({ onSubmit }) => {
   return (
     <FormContainer>
       <form onSubmit={onSubmitForm}>
-        <FormSubTitle>Name</FormSubTitle>
-        <FormInput
-          onChange={onHandleChange}
-          value={name}
+        <TextField
+          label="enter name"
+          variant="outlined"
           type="text"
           name="name"
+          value={name}
+          required
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          required
-        />
-        <FormSubTitle>Number</FormSubTitle>
-        <FormInput
-          value={number}
           onChange={onHandleChange}
+          fullWidth
+          sx={{ m: 1 }}
+        />
+
+        <TextField
+          label="enter number"
+          variant="outlined"
           type="tel"
           name="number"
+          value={number}
+          required
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          required
+          onChange={onHandleChange}
+          fullWidth
+          sx={{ m: 1 }}
         />
         <div>
-          <FormBtn type="submit">Add Contact</FormBtn>
+          <Button variant="contained" type="submit">
+            Add Contact
+          </Button>
         </div>
       </form>
     </FormContainer>

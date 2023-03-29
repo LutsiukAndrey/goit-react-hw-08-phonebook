@@ -50,8 +50,6 @@ const authSlice = createSlice({
       };
     },
     [getCurrentUser.fulfilled]: (state, { payload }) => {
-      console.log('sdfsdf', payload);
-
       return {
         ...state,
         user: payload,
@@ -60,8 +58,6 @@ const authSlice = createSlice({
       };
     },
     [logoutUser.fulfilled]: (state, { payload }) => {
-      console.log('sdfsdf', payload);
-
       return {
         user: null,
         isLoading: false,

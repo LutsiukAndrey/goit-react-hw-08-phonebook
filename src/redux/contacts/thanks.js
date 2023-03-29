@@ -11,7 +11,6 @@ export const fetchContacts = createAsyncThunk(
 
       return data;
     } catch (error) {
-      console.log('asdfasdf');
       return rejectWithValue(error.message);
     }
   }
