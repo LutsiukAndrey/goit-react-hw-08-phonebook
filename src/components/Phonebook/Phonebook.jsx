@@ -23,14 +23,10 @@ export const Phonebook = () => {
     dispatch(addNewContacts(data));
   };
   useEffect(() => {
-    // dispatch(fetchContacts());
     dispatch(getCurrentUser()).then(() => dispatch(fetchContacts()));
 
     // eslint-disable-next-line
   }, [dispatch]);
-  // useEffect(() => {
-  //   dispatch(fetchContacts());
-  // }, [dispatch]);
 
   return (
     <>

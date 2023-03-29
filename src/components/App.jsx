@@ -4,70 +4,55 @@ import { HomePage } from 'pages/HomePage';
 import { ContactsPage } from 'pages/ContactsPage';
 import Layout from './Layout/Layout';
 import { RegisterPage } from 'pages/RegisterPage';
-import { useEffect, useState } from 'react';
 import { LoginPage } from 'pages/LoginPage';
 import { getIsAuth } from 'redux/auth/authSelectors';
-import { useDispatch, useSelector } from 'react-redux';
-import { getCurrentUser } from 'redux/auth/authThanks';
+import { useSelector } from 'react-redux';
+import { NotFound } from 'pages/NotFound/NotFound';
 
-const App = () => {
+const PrivetRoute = ({ children }) => {
   const isAuth = useSelector(getIsAuth);
 
-  return isAuth ? (
+  return isAuth ? children : <Navigate to="/login" />;
+};
+const PublicRoute = ({ children }) => {
+  const isAuth = useSelector(getIsAuth);
+
+  return !isAuth ? children : <Navigate to="/contacts" />;
+};
+
+const App = () => {
+  return (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
-        <Route path="/contacts" element={<ContactsPage />} />
-        <Route path="*" element={<Navigate to={'/'} />} />
+        <Route
+          path="/login"
+          element={
+            <PublicRoute>
+              <LoginPage />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <PublicRoute>
+              <RegisterPage />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/contacts"
+          element={
+            <PrivetRoute>
+              <ContactsPage />
+            </PrivetRoute>
+          }
+        />
       </Route>
-    </Routes>
-  ) : (
-    <Routes>
-      <Route path="/register" element={<RegisterPage />} />
-      <Route path="/login" element={<LoginPage />} />
-
-      <Route path="*" element={<Navigate to={'/register'} />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };
 
 export default App;
-//   return (
-//     <div>
-//       <Routes>
-//         <Route path="/" element={<Wrapper />}>
-//           <Route
-//             // path="/home"
-//             index
-//             element={<Home />}
-//           />
-//           <Route
-//             path="/login"
-//             element={
-//               <PublicRoute>
-//                 <Login />
-//               </PublicRoute>
-//             }
-//           />
-//           <Route
-//             path="/registration"
-//             element={
-//               <PublicRoute>
-//                 <Registration />
-//               </PublicRoute>
-//             }
-//           />
-//           <Route
-//             path="/contacts"
-//             element={
-//               <PrivateRoute>
-//                 <PhoneBook />
-//               </PrivateRoute>
-//             }
-//           />
-//         </Route>
-//         <Route path="*" element={<NotFound />} />
-//       </Routes>
-//     </div>
-//   );
-// };

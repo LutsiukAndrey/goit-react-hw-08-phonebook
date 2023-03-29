@@ -15,8 +15,8 @@ export const LoginPage = () => {
       <AuthForm
         cbOnSubmit={handleSubmit}
         btnTitle={'Login'}
-        linkTitle={'Regiter'}
-        pathName="/regiter"
+        linkTitle={'Register'}
+        pathName="/register"
       />
     </div>
   );
