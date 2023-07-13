@@ -1,5 +1,4 @@
-import { Button, Grid, TextField } from '@mui/material';
-import { Delete } from '@mui/icons-material';
+import { Button, TextField } from '@mui/material';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -74,20 +73,4 @@ export const AuthForm = ({ cbOnSubmit, btnTitle, linkTitle, pathName }) => {
 const FormContainer = styled.div`
   margin-bottom: 40px;
   background-color: aqua;
-`;
-// const FormSubTitle = styled.p`
-//   margin-bottom: 30px;
-// `;
-// const FormInput = styled.input`
-//   width: 300px;
-//   padding: 10px 40px;
-//   border-radius: 20px;
-//   border: transparent;
-//   margin-bottom: 30px;
-// `;
-const FormBtn = styled.button`
-  border-radius: 20px;
-  border: transparent;
-  padding: 10px 25px;
-  background-color: burlywood;
 `;

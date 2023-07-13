@@ -79,19 +79,3 @@ Form.propTypes = {
 const FormContainer = styled.div`
   margin-bottom: 40px;
 `;
-const FormSubTitle = styled.p`
-  margin-bottom: 30px;
-`;
-const FormInput = styled.input`
-  width: 300px;
-  padding: 10px 40px;
-  border-radius: 20px;
-  border: transparent;
-  margin-bottom: 30px;
-`;
-const FormBtn = styled.button`
-  border-radius: 20px;
-  border: transparent;
-  padding: 10px 25px;
-  background-color: burlywood;
-`;

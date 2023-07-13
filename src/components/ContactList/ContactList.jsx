@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteApiContact } from 'redux/contacts/thanks';
 import styled from 'styled-components';
 
-import { Button, ListItem, Stack } from '@mui/material';
+import { Button } from '@mui/material';
 import { Delete } from '@mui/icons-material';
 
 export const ContactList = () => {
