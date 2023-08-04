@@ -1,19 +1,20 @@
-import React from 'react';
-import styled from 'styled-components';
+// import React from 'react';
+// import styled from 'styled-components';
 
-const Container = ({ children }) => (
-  <StyledContainer>{children}</StyledContainer>
-);
+// const Container = ({ children }) => (
 
-export default Container;
-const StyledContainer = styled.div`
-  display: block;
-  max-width: 800px;
+//   // <StyledContainer>{children}</StyledContainer>
+// );
 
-  justify-content: center;
-  margin: 0 auto;
-  text-align: center;
-  border-radius: 20px;
-  background-color: aqua;
-  padding: 30px;
-`;
+// export default Container;
+// const StyledContainer = styled.div`
+//   display: block;
+//   max-width: 800px;
+
+//   justify-content: center;
+//   margin: 0 auto;
+//   text-align: center;
+//   border-radius: 20px;
+//   background-color: aqua;
+//   padding: 30px;
+// `;
