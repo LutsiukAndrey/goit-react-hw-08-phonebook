@@ -1,3 +1,4 @@
+import { Box, Stack, Typography } from '@mui/material';
 import { AuthForm } from 'components/AuthForm/AuthForm';
 import { useDispatch } from 'react-redux';
 import { loginUser } from 'redux/auth/authThanks';
@@ -9,14 +10,19 @@ export const LoginPage = () => {
     dispatch(loginUser(form));
   };
   return (
-    <div>
-      <p>Login</p>
+    <Stack
+      p={{ xs: 2, sm: 10 }}
+      spacing={{ xs: 1, sm: 2 }}
+      alignItems="center"
+      justifyContent="center"
+    >
+      <Typography>Login</Typography>
       <AuthForm
         cbOnSubmit={handleSubmit}
         btnTitle={'Login'}
         linkTitle={'Register'}
         pathName="/register"
       />
-    </div>
+    </Stack>
   );
 };

@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
-import { Button, TextField } from '@mui/material';
 
-export const Form = ({ onSubmit }) => {
+import { Box, Button, Stack, TextField } from '@mui/material';
+
+export const AddContact = ({ onSubmit }) => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const reset = () => {
@@ -33,8 +32,13 @@ export const Form = ({ onSubmit }) => {
     onSubmit({ name, number });
   };
   return (
-    <FormContainer>
-      <form onSubmit={onSubmitForm}>
+    <Box>
+      <Stack
+        alignItems="center"
+        component="form"
+        onSubmit={onSubmitForm}
+        spacing={3}
+      >
         <TextField
           label="enter name"
           variant="outlined"
@@ -46,9 +50,7 @@ export const Form = ({ onSubmit }) => {
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           onChange={onHandleChange}
           fullWidth
-          sx={{ m: 1 }}
         />
-
         <TextField
           label="enter number"
           variant="outlined"
@@ -60,22 +62,11 @@ export const Form = ({ onSubmit }) => {
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           onChange={onHandleChange}
           fullWidth
-          sx={{ m: 1 }}
         />
-        <div>
-          <Button variant="contained" type="submit">
-            Add Contact
-          </Button>
-        </div>
-      </form>
-    </FormContainer>
+        <Button variant="contained" type="submit" color={'secondary'}>
+          Add Contact
+        </Button>
+      </Stack>
+    </Box>
   );
 };
-
-Form.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};
-
-const FormContainer = styled.div`
-  margin-bottom: 40px;
-`;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterContact } from 'redux/contacts/contactSlice';
-import { TextField } from '@mui/material';
+import { Box, TextField } from '@mui/material';
 
 const Filter = () => {
   const dispatch = useDispatch();
@@ -13,7 +13,7 @@ const Filter = () => {
   };
 
   return (
-    <form action="input">
+    <Box component="form" action="input">
       <TextField
         label="filter"
         variant="outlined"
@@ -22,9 +22,8 @@ const Filter = () => {
         value={filter}
         onChange={toFilteInput}
         fullWidth
-        sx={{ m: 2 }}
       />
-    </form>
+    </Box>
   );
 };
 export default Filter;

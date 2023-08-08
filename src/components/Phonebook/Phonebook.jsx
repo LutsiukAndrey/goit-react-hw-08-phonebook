@@ -1,6 +1,6 @@
-import { ContactList } from 'components/ContactList/ContactList';
+import { Stack, Typography } from '@mui/material';
 import Filter from 'components/Filter/Filter';
-import { Form } from 'components/Form/Form';
+import { AddContact } from 'components/AddContact/AddContact';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCurrentUser } from 'redux/auth/authThanks';
@@ -29,12 +29,15 @@ export const Phonebook = () => {
   }, [dispatch]);
 
   return (
-    <>
-      <h1>Phonebook</h1>
-      <Form onSubmit={onHandleSubmit} />
-      <h2>Contacts</h2>
+    <Stack width="100%" textAlign="center" spacing={4}>
+      <Typography component="h2" fontSize={{ xs: 24, sm: 40 }}>
+        Phonebook
+      </Typography>
+      <AddContact onSubmit={onHandleSubmit} />
+      <Typography component="h2" fontSize={{ xs: 24, sm: 40 }}>
+        Contacts
+      </Typography>
       <Filter />
-      <ContactList />
-    </>
+    </Stack>
   );
 };
