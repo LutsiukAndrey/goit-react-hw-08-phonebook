@@ -7,6 +7,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url('../public/workspace.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
 }
 
 code {
@@ -15,4 +19,13 @@ code {
 }
 ul {
   list-style: none;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }

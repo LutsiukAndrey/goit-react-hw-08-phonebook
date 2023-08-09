@@ -1,7 +1,6 @@
-import { Button, TextField } from '@mui/material';
+import { Button, Stack, TextField, Typography } from '@mui/material';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
 
 export const AuthForm = ({ cbOnSubmit, btnTitle, linkTitle, pathName }) => {
   const [formRegister, setFormRegister] = useState({
@@ -23,10 +22,13 @@ export const AuthForm = ({ cbOnSubmit, btnTitle, linkTitle, pathName }) => {
       return;
     } else cbOnSubmit(formLogin);
   };
-  console.log();
   return (
-    <FormContainer>
-      <form onSubmit={handleSubmit}>
+    <Stack alignItems="center" spacing={{ xs: 1, sm: 2 }}>
+      <Stack
+        component="form"
+        onSubmit={handleSubmit}
+        spacing={{ xs: 1, sm: 2 }}
+      >
         {btnTitle === 'Registrate' ? (
           <TextField
             label="enter your name"
@@ -60,17 +62,15 @@ export const AuthForm = ({ cbOnSubmit, btnTitle, linkTitle, pathName }) => {
           onChange={handleChange}
         />
 
-        <div>
-          <Button variant="contained" type="submit">
-            {btnTitle}
-          </Button>
-        </div>
-      </form>
-      <Link to={pathName}>{linkTitle}</Link>
-    </FormContainer>
+        <Button color="secondary" variant="contained" type="submit">
+          {btnTitle}
+        </Button>
+      </Stack>
+      <Button color="secondary" variant="contained">
+        <Link to={pathName}>
+          <Typography color={'text.primary'}>{linkTitle}</Typography>
+        </Link>
+      </Button>
+    </Stack>
   );
 };
-const FormContainer = styled.div`
-  margin-bottom: 40px;
-  background-color: aqua;
-`;

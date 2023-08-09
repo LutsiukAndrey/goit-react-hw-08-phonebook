@@ -12,16 +12,21 @@ import {
 import { contactReducer } from './contacts/contactSlice';
 import storage from 'redux-persist/lib/storage';
 import auth from './auth/authSlice';
+import themeReducer from './theme/themeSlice';
 
+const themePersistConfig = {
+  key: 'theme',
+  storage,
+};
 const authPersistConfigs = {
   key: 'token',
   storage,
 };
 
-const authersiterRedusec = persistReducer(authPersistConfigs, auth);
 export const store = configureStore({
   reducer: {
-    auth: authersiterRedusec,
+    theme: persistReducer(themePersistConfig, themeReducer),
+    auth: persistReducer(authPersistConfigs, auth),
     contactsStore: contactReducer,
   },
   middleware: getDefaultMiddleware =>
